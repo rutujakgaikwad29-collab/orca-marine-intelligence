@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian: #F4F7FB;
+  --color-indigo-charcoal: #FFFFFF;
+  --color-midnight-plum: #E2E8F0;
+  --color-aurora-violet: #2563EB;
+  --color-electric-lavender: #3B82F6;
+  --color-bio-mint: #0D9488;
+  --color-solar-amber: #D97706;
+  --color-coral-red: #DC2626;
+  --color-soft-white: #0F172A;
+  --color-cool-gray: #475569;
+  
+  /* Fallback map for light ocean theme */
+  --color-ocean-dark: #F4F7FB;
+  --color-ocean-blue: #2563EB;
+  --color-ocean-cyan: #0284C7;
+  --color-safe: #16A34A;
+  --color-moderate: #D97706;
+  --color-high: #DC2626;
+  --color-critical: #DC2626;
+}
+
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+  body {
+    background-color: #F4F7FB;
+    color: #0F172A;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+/* Animations */
+@keyframes panSlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes floatParticle {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
+}
+
+/* Custom Light Glass Card & Utilities */
+@layer utilities {
+  .glass-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.06);
+    color: #0F172A;
+    transition: all 0.3s ease;
+  }
+  
+  .glass-card:hover {
+    border-color: #93C5FD;
+    box-shadow: 0 8px 30px rgba(37, 99, 235, 0.12);
+  }
+
+  .text-glow-violet {
+    text-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
+  }
+
+  .text-glow-mint {
+    text-shadow: 0 0 10px rgba(13, 148, 136, 0.4);
+  }
+
+  @keyframes lightning {
+    0%, 95%, 98%, 100% { opacity: 0; }
+    96%, 99% { opacity: 1; filter: brightness(1.5) drop-shadow(0 0 10px #2563EB); }
+  }
+  @keyframes driftClouds {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+  }
+  @keyframes driftCurrents {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+    50% { transform: translate(-20px, 10px) scale(1.1); opacity: 0.5; }
+    100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+  }
+  @keyframes dash {
+    to { stroke-dashoffset: -20; }
+  }
+
+  /* Gemini-style Ocean Voice Agent Aura Animations */
+  @keyframes auraRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes auraPulseSlow {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.22); opacity: 1; filter: blur(14px); }
+  }
+
+  @keyframes particleOrbit1 {
+    0% { transform: rotate(0deg) translateX(32px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(32px) rotate(-360deg); }
+  }
+
+  @keyframes particleOrbit2 {
+    0% { transform: rotate(180deg) translateX(40px) rotate(-180deg); }
+    100% { transform: rotate(540deg) translateX(40px) rotate(-540deg); }
+  }
+
+  @keyframes particleOrbit3 {
+    0% { transform: rotate(90deg) translateX(36px) rotate(-90deg); }
+    100% { transform: rotate(450deg) translateX(36px) rotate(-450deg); }
+  }
+}
+
+.animate-aura-rotate {
+  animation: auraRotate 8s linear infinite;
+}
+
+.animate-aura-rotate-fast {
+  animation: auraRotate 3s linear infinite;
+}
+
+.animate-aura-pulse {
+  animation: auraPulseSlow 3s ease-in-out infinite;
+}
+
+.animate-orbit-1 {
+  animation: particleOrbit1 6s linear infinite;
+}
+
+.animate-orbit-2 {
+  animation: particleOrbit2 8s linear infinite;
+}
+
+.animate-orbit-3 {
+  animation: particleOrbit3 7s linear infinite;
+}
+
+/* Clean, crisp Leaflet light map styles */
+.map-tiles-abyssal {
+  filter: none;
+}
+.leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+  filter: none;
+}
+.leaflet-container {
+  background-color: #E2E8F0 !important;
+}
